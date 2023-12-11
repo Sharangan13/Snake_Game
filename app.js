@@ -26,7 +26,7 @@ let snake = [
     { x: 0, y: 0 }
 ];
 
-// Add event listeners for arrow buttons
+
 const upBtn = document.getElementById('upBtn');
 const downBtn = document.getElementById('downBtn');
 const rightBtn = document.getElementById('rightBtn');
@@ -107,6 +107,7 @@ function nextTick() {
             displayFood();
             moveSnake();
             drawSnake();
+            touchSnakeBody();
             checkGameOver();
             nextTick();
         }, 200);
@@ -115,19 +116,15 @@ function nextTick() {
         context.font = 'bold 25px serif';
         context.textAlign = 'center';
 
-       // Display "Game Over!!" in red
        context.fillStyle = 'red';
        context.fillText('Game Over !!', WIDTH / 2, HEIGHT / 2 - 20);
 
-       // Display "Your Score is: " in white
        context.fillStyle = 'white';
        context.fillText(`Your Score is: ${score}`, WIDTH / 2, HEIGHT / 2 + 20);
 
-       // Hide score span div
        let showScore = document.getElementById('score');
        showScore.style.display = 'none';
 
-       // Show the "Try Again" button
        let tryAgainBtn = document.getElementById('tryAgainBtn');
        tryAgainBtn.style.display = 'block';
 
@@ -197,6 +194,16 @@ function checkGameOver() {
             break;
     }
 }
+
+function touchSnakeBody() {
+    for (let i = 1; i < snake.length; i++) {
+        if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) {
+            active = false;
+            break;
+        }
+    }
+}
+
 
 }
 SNAKEGAME()
