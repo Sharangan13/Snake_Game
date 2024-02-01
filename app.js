@@ -1,5 +1,3 @@
-let scores=[0]
-
 function SNAKEGAME(){
 const gameBoard = document.getElementById('gameBoard');
 const context = gameBoard.getContext('2d');
@@ -17,6 +15,7 @@ let score = 0;
 let active = true;
 let started = false;
 let paused = false;
+let scores=[0]
 
 
 let snake = [
@@ -143,15 +142,7 @@ function keyPress(event) {
         started = true;
         nextTick();
     }
-    // press space bar puse the game
-    if (event.keyCode === 32) {
-        if (paused) {
-            paused = false;
-            nextTick();
-        } else {
-            paused = true;
-        }
-    }
+    
     const LEFT = 37;
     const UP = 38;
     const RIGHT = 39;
@@ -206,6 +197,7 @@ function touchSnakeBody() {
 
 
 }
+
 SNAKEGAME()
 
 function tryAgain(){
