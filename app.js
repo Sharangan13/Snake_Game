@@ -1,3 +1,4 @@
+let scores=[0]
 function SNAKEGAME(){
 const gameBoard = document.getElementById('gameBoard');
 const context = gameBoard.getContext('2d');
@@ -15,7 +16,7 @@ let score = 0;
 let active = true;
 let started = false;
 let paused = false;
-let scores=[0]
+
 
 
 let snake = [
