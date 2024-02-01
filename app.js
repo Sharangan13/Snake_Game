@@ -1,4 +1,5 @@
 let scores=[0]
+
 function SNAKEGAME(){
 const gameBoard = document.getElementById('gameBoard');
 const context = gameBoard.getContext('2d');
@@ -15,7 +16,7 @@ let yVel = 0;
 let score = 0;
 let active = true;
 let started = false;
-let paused = false;
+
 
 
 
@@ -101,7 +102,7 @@ function moveSnake() {
 }
 
 function nextTick() {
-    if (active && !paused) {
+    if (active) {
         setTimeout(() => {
             clearBoard();
             displayFood();
@@ -129,7 +130,7 @@ function nextTick() {
        tryAgainBtn.style.display = 'block';
 
 
-       scores.unshift(score);
+       scores.push(score);
 
        let maxValue=document.getElementById("maxScoreVal")
        maxValue.textContent=Math.max(...scores);
